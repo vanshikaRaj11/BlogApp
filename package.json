@@ -1,0 +1,19 @@
+{
+  "name": "blogapp",
+  "version": "1.0.0",
+  "description": "Simple blog app ",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev":"nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "yes"
+  },
+  "author": "Vanshika Rajput",
+  "license": "ISC",
+  "dependencies": {
+    "nodemon": "^3.1.4"
+  }
+}

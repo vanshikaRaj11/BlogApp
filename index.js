@@ -8,7 +8,7 @@ console.log(process.env.PORT);
 
 app.use(express.json());
 
-const blog = require('./routes/blog')
+const blog = require('./routes/blog.route')
 
 //mount
 app.use('/v1',blog)

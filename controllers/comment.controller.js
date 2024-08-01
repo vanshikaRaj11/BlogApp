@@ -4,10 +4,10 @@ const httpStatus = require("http-status")
 
 exports.createComment = async (req, res) => {
   try {
-    const { post, user, body } = req.body;
+    const { postId, user, body } = req.body;
 
     const comment = new Comment({
-      post,
+      postId,
       user,
       body,
     });
@@ -15,14 +15,16 @@ exports.createComment = async (req, res) => {
     const savedComment = await comment.save();
 
     const updatedPost = await Post.findByIdAndUpdate(
-      post,
+      postId,
       {
         $push: { comments: savedComment._id },
       },
       { new: true }
-      ).populate("comments").exec();
+    )
+      .populate("comments")
+      .exec();
       
-      res.send(httpStatus.OK,{
+      res.status(httpStatus.OK).send({
           data: updatedPost,
           code: 200,
           message:"Comment added successfully"
